@@ -52,6 +52,7 @@ sap.ui.define(
 
         onNameChange: function (oEvent) {
           const oInput = oEvent.getSource();
+
           this._validateInput(oInput);
         },
 

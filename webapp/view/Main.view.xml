@@ -17,7 +17,6 @@
 			id="nameInput"
 			class="sapUiSmallMarginBottom"
 			placeholder="Enter name"
-			valueStateText="Name must not be empty. Maximum 5 characters."
 			value="{
 				path: '/name',
 				type: 'sap.ui.model.type.String',
@@ -26,7 +25,7 @@
 					maxLength: 10
 				}
 			}"
-			change=".onNameChange"
+			change="onNameChange"
 		/>
 		<Label
 			text="E-mail"
@@ -37,7 +36,6 @@
 			class="sapUiSmallMarginBottom"
 			type="Email"
 			placeholder="Enter email"
-			valueStateText="E-mail must be a valid email address."
 			value="{
 				path: '/email',
 				type: '.customEMailType'
@@ -45,7 +43,7 @@
 		/>
 		<Button
 			text="Submit"
-			press=".onSubmit"
+			press="onSubmit"
 		/>
 	</l:VerticalLayout>
 </mvc:View>
