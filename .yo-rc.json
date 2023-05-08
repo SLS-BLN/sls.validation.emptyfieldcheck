@@ -1,0 +1,15 @@
+{
+  "generator-ui5-app": {
+    "application": "emptyfieldcheck",
+    "namespace": "sls.validation",
+    "framework": "OpenUI5",
+    "frameworkVersion": "1.113.0",
+    "author": "Stefan Schlicker",
+    "initrepo": true,
+    "tstypes": "@openui5/ts-types-esm",
+    "tstypesVersion": "1.113.0",
+    "appId": "sls.validation.emptyfieldcheck",
+    "appURI": "sls/validation/emptyfieldcheck",
+    "setupCompleted": true
+  }
+}
