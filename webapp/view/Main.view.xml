@@ -4,5 +4,34 @@
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
 >
-	<Page title="Test"/>
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page
+					id="page"
+					title="Formatprüfung"
+				>
+					<Label
+						text="E-Mail"
+						required="true"
+					/>
+					<Input
+						id="email"
+						required="true"
+					/>
+					<Label
+						text="Name"
+						required="true"
+					/>
+					<Input id="name"/>
+					<Button
+						id="saveEmail"
+						text="Validiere Inputs"
+						type="Emphasized"
+						press="validateInputs"
+					/>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
 </mvc:View>
