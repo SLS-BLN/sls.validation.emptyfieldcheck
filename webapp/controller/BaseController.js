@@ -13,6 +13,10 @@ sap.ui.define(
         getOwnerComponent: function () {
           return Controller.prototype.getOwnerComponent.call(this);
         },
+
+        getValue: function (id) {
+          return this.getView().byId(id).getValue();
+        },
       }
     );
   }
