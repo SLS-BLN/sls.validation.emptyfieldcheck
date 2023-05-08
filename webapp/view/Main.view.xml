@@ -2,36 +2,50 @@
 	controllerName="sls.validation.emptyfieldcheck.controller.Main"
 	displayBlock="true"
 	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
 	xmlns:mvc="sap.ui.core.mvc"
 >
-	<Shell id="shell">
-		<App id="app">
-			<pages>
-				<Page
-					id="page"
-					title="Formatprüfung"
-				>
-					<Label
-						text="E-Mail"
-						required="true"
-					/>
-					<Input
-						id="email"
-						required="true"
-					/>
-					<Label
-						text="Name"
-						required="true"
-					/>
-					<Input id="name"/>
-					<Button
-						id="saveEmail"
-						text="Validiere Inputs"
-						type="Emphasized"
-						press="validateInputs"
-					/>
-				</Page>
-			</pages>
-		</App>
-	</Shell>
+	<l:VerticalLayout
+		class="sapUiContentPadding"
+		width="100%"
+	>
+		<Label
+			text="Name"
+			labelFor="nameInput"
+		/>
+		<Input
+			id="nameInput"
+			class="sapUiSmallMarginBottom"
+			placeholder="Enter name"
+			valueStateText="Name must not be empty. Maximum 5 characters."
+			value="{
+				path: '/name',
+				type: 'sap.ui.model.type.String',
+				constraints: {
+					minLength: 2,
+					maxLength: 10
+				}
+			}"
+			change=".onNameChange"
+		/>
+		<Label
+			text="E-mail"
+			labelFor="emailInput"
+		/>
+		<Input
+			id="emailInput"
+			class="sapUiSmallMarginBottom"
+			type="Email"
+			placeholder="Enter email"
+			valueStateText="E-mail must be a valid email address."
+			value="{
+				path: '/email',
+				type: '.customEMailType'
+			}"
+		/>
+		<Button
+			text="Submit"
+			press=".onSubmit"
+		/>
+	</l:VerticalLayout>
 </mvc:View>
