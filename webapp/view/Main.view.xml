@@ -12,6 +12,18 @@
 					title="Formatprüfung"
 				>
 					<Label
+						text="City"
+						required="true"
+					/>
+					<Input
+						showClearIcon="true"
+						showValueHelp="true"
+						valueState="Information"
+						value="noch Berlin?"
+						valueStateText="Hier solltest du deinen Wohnort eintragen"
+						class="sapUiSmallMarginTopBottom"
+					/>
+					<Label
 						text="E-Mail"
 						required="true"
 					/>
