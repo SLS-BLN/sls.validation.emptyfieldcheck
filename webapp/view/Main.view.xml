@@ -12,6 +12,21 @@
 					title="Formatprüfung"
 				>
 					<Label
+						text="PLZ"
+						required="true"
+					/>
+					<Input
+						change="onChange"
+						value="{
+							path: '/plz',
+							type: 'sap.ui.model.type.String',
+							constraints: {
+								minLength: 2,
+								maxLength: 5
+							}
+							"
+					/>
+					<Label
 						text="City"
 						required="true"
 					/>
