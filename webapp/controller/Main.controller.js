@@ -23,8 +23,8 @@ sap.ui.define(
       "sls.validation.emptyfieldcheck.controller.Main",
       {
         onInit: function () {
-          const oView = this.getView(),
-            oMM = Core.getMessageManager();
+          const oView = this.getView();
+          const oMM = Core.getMessageManager();
 
           oView.setModel(new JSONModel({ name: "", email: "" }));
 
