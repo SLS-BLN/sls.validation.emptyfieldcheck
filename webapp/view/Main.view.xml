@@ -10,6 +10,19 @@
 		width="100%"
 	>
 		<Label
+			text="Age"
+			labelFor="ageInput"
+		/>
+		<Input
+			id="ageInput"
+			class="sapUiSmallMarginBottom"
+			placeholder="Enter age"
+			value="{
+				path: '/age',
+				type: 'sap.ui.model.type.Integer'
+			}"
+		/>
+		<Label
 			text="Name"
 			labelFor="nameInput"
 		/>

@@ -26,9 +26,10 @@ sap.ui.define(
           const oView = this.getView();
           const oMM = Core.getMessageManager();
 
-          oView.setModel(new JSONModel({ name: "", email: "" }));
+          oView.setModel(new JSONModel({ name: "", email: "", age: "" }));
 
           // attach handlers for validation errors
+          oMM.registerObject(oView.byId("ageInput"), true);
           oMM.registerObject(oView.byId("nameInput"), true);
           oMM.registerObject(oView.byId("emailInput"), true);
         },
@@ -48,6 +49,12 @@ sap.ui.define(
           oInput.setValueState(sValueState);
 
           return bValidationError;
+        },
+
+        onAgeChange: function (oEvent) {
+          const oInput = oEvent.getSource();
+
+          this._validateInput(oInput);
         },
 
         onNameChange: function (oEvent) {
