@@ -75,13 +75,18 @@ sap.ui.define(
           }, this);
 
           if (!bValidationError) {
-            MessageToast.show(
-              "The input is validated. Your form has been submitted."
-            );
+            // eslint-disable-next-line no-warning-comments
+            // TODO: i18n
+            const msg = "The input is validated. Your form has been submitted.";
+
+            MessageToast.show(msg);
           } else {
-            MessageBox.alert(
-              "A validation error has occurred. Complete your input first."
-            );
+            // eslint-disable-next-line no-warning-comments
+            // TODO: i18n
+            const msg =
+              "A validation error has occurred. Complete your input first.";
+
+            MessageBox.alert(msg);
           }
         },
 
