@@ -56,6 +56,12 @@ sap.ui.define(
           this._validateInput(oInput);
         },
 
+        onNameLiveChange: function (oEvent) {
+          const oInput = oEvent.getSource();
+
+          this._validateInput(oInput);
+        },
+
         onSubmit: function () {
           // collect input controls
           const oView = this.getView();

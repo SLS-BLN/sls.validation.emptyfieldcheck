@@ -26,6 +26,7 @@
 				}
 			}"
 			change="onNameChange"
+			liveChange="onNameLiveChange"
 		/>
 		<Label
 			text="E-mail"
