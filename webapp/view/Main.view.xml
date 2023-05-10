@@ -5,60 +5,27 @@
 	xmlns:mvc="sap.ui.core.mvc"
 >
 	<Shell id="shell">
-		<App id="app">
-			<pages>
-				<Page
-					id="page"
-					title="Formatprüfung"
-				>
-					<Label
-						text="PLZ"
-						required="true"
-					/>
-					<Input
-						change="onChange"
-						value="{
-							path: '/plz',
-							type: 'sap.ui.model.type.String',
-							constraints: {
-								minLength: 2,
-								maxLength: 5
-							}
-							"
-					/>
-					<Label
-						text="City"
-						required="true"
-					/>
-					<Input
-						showClearIcon="true"
-						showValueHelp="true"
-						valueState="Information"
-						value="noch Berlin?"
-						valueStateText="Hier solltest du deinen Wohnort eintragen"
-						class="sapUiSmallMarginTopBottom"
-					/>
-					<Label
-						text="E-Mail"
-						required="true"
-					/>
-					<Input
-						id="email"
-						required="true"
-					/>
-					<Label
-						text="Name"
-						required="true"
-					/>
-					<Input id="name"/>
-					<Button
-						id="saveEmail"
-						text="Validiere Inputs"
-						type="Emphasized"
-						press="validateInputs"
-					/>
-				</Page>
-			</pages>
-		</App>
+		<Page
+			id="page"
+			title="Formatprüfung"
+			class="sapUiContentPadding"
+		>
+			<Label
+				text="PLZ"
+				required="true"
+			/>
+			<Input
+				id="plzInput"
+				liveChange="onLiveChange"
+				value=""
+				valueStateText="Die PLZ muss 5-stellig sein"
+			/>
+			<Button
+				id="saveEmail"
+				text="Validiere Inputs"
+				type="Emphasized"
+				press="validateInputs"
+			/>
+		</Page>
 	</Shell>
 </mvc:View>
