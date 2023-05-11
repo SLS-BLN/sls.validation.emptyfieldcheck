@@ -26,7 +26,7 @@ sap.ui.define(
           const oView = this.getView();
           const oMM = Core.getMessageManager();
 
-          oView.setModel(new JSONModel({ name: "", email: "", age: "" }));
+          oView.setModel(new JSONModel({ name: "", email: "", age: null }));
 
           // attach handlers for validation errors
           oMM.registerObject(oView.byId("ageInput"), true);
@@ -53,6 +53,7 @@ sap.ui.define(
 
         onAgeChange: function (oEvent) {
           const oInput = oEvent.getSource();
+          console.log(oInput);
 
           this._validateInput(oInput);
         },
@@ -72,7 +73,11 @@ sap.ui.define(
         onSubmit: function () {
           // collect input controls
           const oView = this.getView();
-          const aInputs = [oView.byId("nameInput"), oView.byId("emailInput")];
+          const aInputs = [
+            oView.byId("nameInput"),
+            oView.byId("emailInput"),
+            oView.byId("ageInput"),
+          ];
           let bValidationError = false;
 
           // Check that inputs are not empty.

@@ -12,6 +12,7 @@
 		<Label
 			text="Age"
 			labelFor="ageInput"
+			required="true"
 		/>
 		<Input
 			id="ageInput"
@@ -19,12 +20,17 @@
 			placeholder="Enter age"
 			value="{
 				path: '/age',
-				type: 'sap.ui.model.type.Integer'
+				type: 'sap.ui.model.type.Integer',
+				constraints: {
+					minimum: 18
+				}
 			}"
+			change="onAgeChange"
 		/>
 		<Label
 			text="Name"
 			labelFor="nameInput"
+			required="true"
 		/>
 		<Input
 			id="nameInput"
@@ -44,6 +50,7 @@
 		<Label
 			text="E-mail"
 			labelFor="emailInput"
+			required="true"
 		/>
 		<Input
 			id="emailInput"
