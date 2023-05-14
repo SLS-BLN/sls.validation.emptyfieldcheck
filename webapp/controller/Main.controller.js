@@ -53,7 +53,6 @@ sap.ui.define(
 
         onAgeChange: function (oEvent) {
           const oInput = oEvent.getSource();
-          console.log(oInput);
 
           this._validateInput(oInput);
         },
