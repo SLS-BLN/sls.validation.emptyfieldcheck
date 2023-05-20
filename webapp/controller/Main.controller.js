@@ -26,12 +26,15 @@ sap.ui.define(
           const oView = this.getView();
           const oMM = Core.getMessageManager();
 
-          oView.setModel(new JSONModel({ name: "", email: "", age: null }));
+          oView.setModel(
+            new JSONModel({ name: "", email: "", age: null, date: null })
+          );
 
           // attach handlers for validation errors
           oMM.registerObject(oView.byId("ageInput"), true);
           oMM.registerObject(oView.byId("nameInput"), true);
           oMM.registerObject(oView.byId("emailInput"), true);
+          oMM.registerObject(oView.byId("dateTimeInput"), true);
         },
 
         _validateInput: function (oInput) {
@@ -76,6 +79,7 @@ sap.ui.define(
             oView.byId("nameInput"),
             oView.byId("emailInput"),
             oView.byId("ageInput"),
+            oView.byId("dateTimeInput"),
           ];
           let bValidationError = false;
 
@@ -106,7 +110,7 @@ sap.ui.define(
          * @class
          * @extends sap.ui.model.SimpleType
          */
-        customEMailType: SimpleType.extend("email", {
+        customEmailType: SimpleType.extend("email", {
           formatValue: function (oValue) {
             return oValue;
           },
@@ -123,6 +127,29 @@ sap.ui.define(
             if (!oValue.match(rexMail)) {
               throw new ValidateException(
                 "'" + oValue + "' is not a valid e-mail address"
+              );
+            }
+          },
+        }),
+        /**
+         * Custom model type for validating Date and Time
+         * @class
+         * @extends sap.ui.model.SimpleType
+         */
+        customDateTimeType: SimpleType.extend("email", {
+          formatValue: function (oValue) {
+            return oValue;
+          },
+
+          parseValue: function (oValue) {
+            //parsing step takes place before validating step, value could be altered here
+            return oValue;
+          },
+
+          validateValue: function (oValue) {
+            if (!oValue) {
+              throw new ValidateException(
+                "'" + oValue + "' is not a valid date and time"
               );
             }
           },
