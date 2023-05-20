@@ -63,6 +63,21 @@
 			}"
         />
         <Label
+            text="Password"
+            labelFor="passwordInput"
+            required="true"
+        />
+        <Input
+            id="passwordInput"
+            class="sapUiSmallMarginBottom"
+            placeholder="Enter password"
+            value="{
+							path: '/pwd',
+							type: '.types.password'
+						}"
+        />
+
+        <Label
             text="Date and Time"
             labelFor="dateTimeInput"
             required="true"

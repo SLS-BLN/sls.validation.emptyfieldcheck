@@ -7,6 +7,7 @@ sap.ui.define(
     "sap/ui/core/Core",
     "sap/m/MessageBox",
     "sap/m/MessageToast",
+    "sls/validation/emptyfieldcheck/util/PasswordType",
   ],
   function (
     BaseController,
@@ -15,25 +16,35 @@ sap.ui.define(
     ValidateException,
     Core,
     MessageBox,
-    MessageToast
+    MessageToast,
+    PasswordType
   ) {
     "use strict";
 
     return BaseController.extend(
       "sls.validation.emptyfieldcheck.controller.Main",
       {
+        types: { password: new PasswordType() },
+
         onInit: function () {
           const oView = this.getView();
           const oMM = Core.getMessageManager();
 
           oView.setModel(
-            new JSONModel({ name: "", email: "", age: null, date: null })
+            new JSONModel({
+              name: "",
+              email: "",
+              age: null,
+              date: null,
+              pwd: "",
+            })
           );
 
           // attach handlers for validation errors
           oMM.registerObject(oView.byId("ageInput"), true);
           oMM.registerObject(oView.byId("nameInput"), true);
           oMM.registerObject(oView.byId("emailInput"), true);
+          oMM.registerObject(oView.byId("passwordInput"), true);
           oMM.registerObject(oView.byId("dateTimeInput"), true);
         },
 
@@ -136,7 +147,7 @@ sap.ui.define(
          * @class
          * @extends sap.ui.model.SimpleType
          */
-        customDateTimeType: SimpleType.extend("email", {
+        customDateTimeType: SimpleType.extend("date", {
           formatValue: function (oValue) {
             return oValue;
           },
