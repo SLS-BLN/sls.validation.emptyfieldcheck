@@ -8,6 +8,7 @@ sap.ui.define(
     "sap/m/MessageBox",
     "sap/m/MessageToast",
     "sls/validation/emptyfieldcheck/util/PasswordType",
+    "sls/validation/emptyfieldcheck/util/DateTimeType",
   ],
   function (
     BaseController,
@@ -17,14 +18,18 @@ sap.ui.define(
     Core,
     MessageBox,
     MessageToast,
-    PasswordType
+    PasswordType,
+    DateTimeType
   ) {
     "use strict";
 
     return BaseController.extend(
       "sls.validation.emptyfieldcheck.controller.Main",
       {
-        types: { password: new PasswordType() },
+        types: {
+          password: new PasswordType(),
+          dateTime: new DateTimeType(),
+        },
 
         onInit: function () {
           const oView = this.getView();
@@ -90,7 +95,6 @@ sap.ui.define(
             oView.byId("nameInput"),
             oView.byId("emailInput"),
             oView.byId("ageInput"),
-            oView.byId("dateTimeInput"),
           ];
           let bValidationError = false;
 
@@ -138,29 +142,6 @@ sap.ui.define(
             if (!oValue.match(rexMail)) {
               throw new ValidateException(
                 "'" + oValue + "' is not a valid e-mail address"
-              );
-            }
-          },
-        }),
-        /**
-         * Custom model type for validating Date and Time
-         * @class
-         * @extends sap.ui.model.SimpleType
-         */
-        customDateTimeType: SimpleType.extend("date", {
-          formatValue: function (oValue) {
-            return oValue;
-          },
-
-          parseValue: function (oValue) {
-            //parsing step takes place before validating step, value could be altered here
-            return oValue;
-          },
-
-          validateValue: function (oValue) {
-            if (!oValue) {
-              throw new ValidateException(
-                "'" + oValue + "' is not a valid date and time"
               );
             }
           },

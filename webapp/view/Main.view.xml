@@ -86,7 +86,7 @@
             id="dateTimeInput"
             value="{
 					path: '/date',
-					type: 'customDateTimeType'
+					type: '.types.dateTime'
 				}"
         />
         <Button
