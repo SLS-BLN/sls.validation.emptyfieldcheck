@@ -15,18 +15,21 @@ sap.ui.define(["sap/ui/model/SimpleType"], function (SimpleType) {
       const dateTime = Date.parse(oValue);
       const currentTime = Date.now();
 
-      // TODO: check if input is a Date object
-      // if ...
-
-      // check if input is not in the past
-      if (dateTime < currentTime) {
+      if (isNaN(dateTime) === true) {
         // @ts-ignore
         throw new sap.ui.model.ValidateException(
           "Please enter a valid date and time"
         );
       }
 
-      console.log(oValue);
+      // check if input is not in the past
+      if (dateTime < currentTime) {
+        // @ts-ignore
+        throw new sap.ui.model.ValidateException(
+          "Please enter a date in the future"
+        );
+      }
+
       return oValue;
     },
   });
