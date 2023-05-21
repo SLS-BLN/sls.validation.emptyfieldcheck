@@ -2,8 +2,6 @@ sap.ui.define(
   [
     "./BaseController",
     "sap/ui/model/json/JSONModel",
-    "sap/ui/model/SimpleType",
-    "sap/ui/model/ValidateException",
     "sap/ui/core/Core",
     "sap/m/MessageBox",
     "sap/m/MessageToast",
@@ -14,8 +12,6 @@ sap.ui.define(
   function (
     BaseController,
     JSONModel,
-    SimpleType,
-    ValidateException,
     Core,
     MessageBox,
     MessageToast,
@@ -74,8 +70,6 @@ sap.ui.define(
           ];
           let bValidationError = false;
 
-          // Check that inputs are not empty.
-          // Validation does not happen during data binding as this is only triggered by user actions.
           aInputs.forEach(function (oInput) {
             bValidationError = this._validateInput(oInput) || bValidationError;
           }, this);
