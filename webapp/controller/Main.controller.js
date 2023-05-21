@@ -9,6 +9,7 @@ sap.ui.define(
     "sap/m/MessageToast",
     "sls/validation/emptyfieldcheck/util/PasswordType",
     "sls/validation/emptyfieldcheck/util/DateTimeType",
+    "sls/validation/emptyfieldcheck/util/EmailType",
   ],
   function (
     BaseController,
@@ -19,7 +20,8 @@ sap.ui.define(
     MessageBox,
     MessageToast,
     PasswordType,
-    DateTimeType
+    DateTimeType,
+    EmailType
   ) {
     "use strict";
 
@@ -29,6 +31,7 @@ sap.ui.define(
         types: {
           password: new PasswordType(),
           dateTime: new DateTimeType(),
+          email: new EmailType(),
         },
 
         onInit: function () {
@@ -107,33 +110,6 @@ sap.ui.define(
             MessageBox.alert(msg);
           }
         },
-
-        /**
-         * Custom model type for validating an E-Mail address
-         * @class
-         * @extends sap.ui.model.SimpleType
-         */
-        customEmailType: SimpleType.extend("email", {
-          formatValue: function (oValue) {
-            return oValue;
-          },
-
-          parseValue: function (oValue) {
-            //parsing step takes place before validating step, value could be altered here
-            return oValue;
-          },
-
-          validateValue: function (oValue) {
-            // The following Regex is only used for demonstration purposes and does not cover all variations of email addresses.
-            // It's always better to validate an address by simply sending an e-mail to it.
-            const rexMail = /^\w+[\w-+\.]*\@\w+([-\.]\w+)*\.[a-zA-Z]{2,}$/;
-            if (!oValue.match(rexMail)) {
-              throw new ValidateException(
-                "'" + oValue + "' is not a valid e-mail address"
-              );
-            }
-          },
-        }),
       }
     );
   }

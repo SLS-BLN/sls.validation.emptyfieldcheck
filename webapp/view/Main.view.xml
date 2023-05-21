@@ -57,7 +57,7 @@
             placeholder="Enter email"
             value="{
 				path: '/email',
-				type: '.customEmailType'
+				type: '.types.email'
 			}"
         />
         <Label
