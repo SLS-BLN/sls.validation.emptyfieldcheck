@@ -5,39 +5,40 @@
     xmlns:l="sap.ui.layout"
     xmlns:mvc="sap.ui.core.mvc"
 >
-    <l:VerticalLayout
-        class="sapUiContentPadding"
-        width="100%"
-    >
-        <Label
-            text="Age"
-            labelFor="ageInput"
-            required="true"
-        />
-        <Input
-            id="ageInput"
-            class="sapUiSmallMarginBottom"
-            placeholder="Enter age"
-            showClearIcon="true"
-            valueLiveUpdate="true"
-            value="{
+    <Page>
+        <l:VerticalLayout
+            class="sapUiContentPadding"
+            width="100%"
+        >
+            <Label
+                text="Age"
+                labelFor="ageInput"
+                required="true"
+            />
+            <Input
+                id="ageInput"
+                class="sapUiSmallMarginBottom"
+                placeholder="Enter age"
+                showClearIcon="true"
+                valueLiveUpdate="true"
+                value="{
 				path: '/age',
 				type: 'sap.ui.model.type.Integer',
 				constraints: {
 					minimum: 18
 				}
 			}"
-        />
-        <Label
-            text="Name"
-            labelFor="nameInput"
-            required="true"
-        />
-        <Input
-            id="nameInput"
-            class="sapUiSmallMarginBottom"
-            placeholder="Enter name"
-            value="{
+            />
+            <Label
+                text="Name"
+                labelFor="nameInput"
+                required="true"
+            />
+            <Input
+                id="nameInput"
+                class="sapUiSmallMarginBottom"
+                placeholder="Enter name"
+                value="{
 				path: '/name',
 				type: 'sap.ui.model.type.String',
 				constraints: {
@@ -45,56 +46,66 @@
 					maxLength: 10
 				}
 			}"
-            liveChange="onNameLiveChange"
-        />
-        <Label
-            text="E-mail"
-            labelFor="emailInput"
-            required="true"
-        />
-        <Input
-            id="emailInput"
-            class="sapUiSmallMarginBottom"
-            type="Email"
-            autocomplete="true"
-            placeholder="Enter email"
-            value="{
+                liveChange="onNameLiveChange"
+            />
+            <Label
+                text="E-mail"
+                labelFor="emailInput"
+                required="true"
+            />
+            <Input
+                id="emailInput"
+                class="sapUiSmallMarginBottom"
+                type="Email"
+                autocomplete="true"
+                placeholder="Enter email"
+                value="{
 				path: '/email',
 				type: '.types.email'
 			}"
-        />
-        <Label
-            text="Password"
-            labelFor="passwordInput"
-            required="true"
-        />
-        <Input
-            id="passwordInput"
-            class="sapUiSmallMarginBottom"
-            placeholder="Enter password"
-            showClearIcon="true"
-            value="{
+            />
+            <Label
+                text="Password"
+                labelFor="passwordInput"
+                required="true"
+            />
+            <Input
+                id="passwordInput"
+                class="sapUiSmallMarginBottom"
+                placeholder="Enter password"
+                showClearIcon="true"
+                value="{
 							path: '/pwd',
 							type: '.types.password'
 						}"
-        />
+            />
 
-        <Label
-            text="Date and Time"
-            labelFor="dateTimeInput"
-            required="true"
-        />
-        <DateTimePicker
-            id="dateTimeInput"
-            value="{
+            <Label
+                text="Date and Time"
+                labelFor="dateTimeInput"
+                required="true"
+            />
+            <DateTimePicker
+                id="dateTimeInput"
+                value="{
 					path: '/date',
 					type: '.types.dateTime'
 				}"
-        />
-        <Button
-            text="Submit"
-            press="onSubmit"
-            type="Emphasized"
-        />
-    </l:VerticalLayout>
+            />
+        </l:VerticalLayout>
+        <footer>
+            <Toolbar>
+                <Button
+                    text="Submit"
+                    press="onSubmit"
+                    type="Emphasized"
+                />
+                <Button
+                    text="Reset"
+                    press="onReset"
+                    type="Reject"
+                />
+            </Toolbar>
+        </footer>
+    </Page>
 </mvc:View>

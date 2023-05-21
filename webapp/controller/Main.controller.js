@@ -102,6 +102,29 @@ sap.ui.define(
 
           return bValidationError;
         },
+
+        onReset: function () {
+          const oView = this.getView();
+          const oModel = oView.getModel();
+
+          oModel.setProperty("/name", "");
+          oModel.setProperty("/email", "");
+          oModel.setProperty("/age", null);
+          oModel.setProperty("/date", null);
+          oModel.setProperty("/pwd", "");
+
+          const aInputs = [
+            oView.byId("nameInput"),
+            oView.byId("emailInput"),
+            oView.byId("ageInput"),
+            oView.byId("passwordInput"),
+            oView.byId("dateTimeInput"),
+          ];
+
+          aInputs.forEach(function (oInput) {
+            oInput.setValueState("None");
+          });
+        },
       }
     );
   }
