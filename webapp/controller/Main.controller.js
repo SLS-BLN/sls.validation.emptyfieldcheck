@@ -45,12 +45,12 @@ sap.ui.define(
             })
           );
 
-          // attach handlers for validation errors
+          // registering the control in the message manager
           oMM.registerObject(oView.byId("ageInput"), true);
-          oMM.registerObject(oView.byId("nameInput"), true);
-          oMM.registerObject(oView.byId("emailInput"), true);
-          oMM.registerObject(oView.byId("passwordInput"), true);
-          oMM.registerObject(oView.byId("dateTimeInput"), true);
+          // oMM.registerObject(oView.byId("emailInput"), true);
+          // oMM.registerObject(oView.byId("nameInput"), true);
+          // oMM.registerObject(oView.byId("passwordInput"), true);
+          // oMM.registerObject(oView.byId("dateTimeInput"), true);
         },
 
         _validateInput: function (oInput) {
@@ -68,18 +68,6 @@ sap.ui.define(
           oInput.setValueState(sValueState);
 
           return bValidationError;
-        },
-
-        onAgeChange: function (oEvent) {
-          const oInput = oEvent.getSource();
-
-          this._validateInput(oInput);
-        },
-
-        onNameChange: function (oEvent) {
-          const oInput = oEvent.getSource();
-
-          this._validateInput(oInput);
         },
 
         onNameLiveChange: function (oEvent) {

@@ -6,7 +6,7 @@ sap.ui.define(
     return UIComponent.extend("sls.validation.emptyfieldcheck.Component", {
       metadata: {
         manifest: "json",
-        handleValidation: true,
+        // handleValidation: true,
       },
       init: function () {
         // call the base component's init function

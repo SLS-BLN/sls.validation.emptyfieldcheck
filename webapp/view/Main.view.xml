@@ -25,7 +25,6 @@
 					minimum: 18
 				}
 			}"
-            change="onAgeChange"
         />
         <Label
             text="Name"
@@ -44,7 +43,6 @@
 					maxLength: 10
 				}
 			}"
-            change="onNameChange"
             liveChange="onNameLiveChange"
         />
         <Label
