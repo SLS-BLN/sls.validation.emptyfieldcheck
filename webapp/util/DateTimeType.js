@@ -1,3 +1,4 @@
+/* eslint-disable no-warning-comments */
 sap.ui.define(["sap/ui/model/SimpleType"], function (SimpleType) {
   "use strict";
 
@@ -11,19 +12,22 @@ sap.ui.define(["sap/ui/model/SimpleType"], function (SimpleType) {
     },
 
     validateValue: function (oValue) {
-      const timestamp = Date.parse(oValue);
-      const currentTimestamp = Date.now();
+      const dateTime = Date.parse(oValue);
+      const currentTime = Date.now();
 
-      if (timestamp < currentTimestamp) {
+      // TODO: check if input is a Date object
+      // if ...
+
+      // check if input is not in the past
+      if (dateTime < currentTime) {
         // @ts-ignore
         throw new sap.ui.model.ValidateException(
           "Please enter a valid date and time"
         );
-      } else {
-        console.log(oValue);
-
-        return oValue;
       }
+
+      console.log(oValue);
+      return oValue;
     },
   });
 });
