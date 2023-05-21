@@ -18,6 +18,8 @@
             id="ageInput"
             class="sapUiSmallMarginBottom"
             placeholder="Enter age"
+            showClearIcon="true"
+            valueLiveUpdate="true"
             value="{
 				path: '/age',
 				type: 'sap.ui.model.type.Integer',
@@ -69,6 +71,7 @@
             id="passwordInput"
             class="sapUiSmallMarginBottom"
             placeholder="Enter password"
+            showClearIcon="true"
             value="{
 							path: '/pwd',
 							type: '.types.password'
