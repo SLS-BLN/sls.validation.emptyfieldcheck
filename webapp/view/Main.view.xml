@@ -39,13 +39,13 @@
                 class="sapUiSmallMarginBottom"
                 placeholder="Enter name"
                 value="{
-				path: '/name',
-				type: 'sap.ui.model.type.String',
-				constraints: {
-					minLength: 2,
-					maxLength: 10
-				}
-			}"
+									path: '/name',
+									type: 'sap.ui.model.type.String',
+									constraints: {
+										minLength: 2,
+										maxLength: 10
+									}
+								}"
                 liveChange="onNameLiveChange"
             />
             <Label
