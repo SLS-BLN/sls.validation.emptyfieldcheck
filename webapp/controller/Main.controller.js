@@ -2,7 +2,6 @@ sap.ui.define(
   [
     "./BaseController",
     "sap/ui/model/json/JSONModel",
-    "sap/ui/core/Core",
     "sap/m/MessageBox",
     "sap/m/MessageToast",
     "sls/validation/emptyfieldcheck/util/PasswordType",
@@ -12,7 +11,6 @@ sap.ui.define(
   function (
     BaseController,
     JSONModel,
-    Core,
     MessageBox,
     MessageToast,
     PasswordType,
@@ -26,7 +24,6 @@ sap.ui.define(
       {
         onInit: function () {
           const oView = this.getView();
-          const oMM = Core.getMessageManager();
 
           oView.setModel(
             new JSONModel({
@@ -37,13 +34,6 @@ sap.ui.define(
               pwd: "",
             })
           );
-
-          // registering the control in the message manager
-          oMM.registerObject(oView.byId("ageInput"), true);
-          // oMM.registerObject(oView.byId("emailInput"), true);
-          // oMM.registerObject(oView.byId("nameInput"), true);
-          // oMM.registerObject(oView.byId("passwordInput"), true);
-          // oMM.registerObject(oView.byId("dateTimeInput"), true);
         },
 
         types: {
@@ -52,10 +42,12 @@ sap.ui.define(
           email: new EmailType(),
         },
 
-        onNameLiveChange: function (oEvent) {
-          const oInput = oEvent.getSource();
-
-          this._validateInput(oInput);
+        onSubmitFieldGroup: function () {
+          if (this.validateFieldGroup("personalInfo")) {
+            const msg =
+              "Your input could not be validated. Complete your input first.";
+            MessageBox.alert(msg);
+          }
         },
 
         onSubmit: function () {

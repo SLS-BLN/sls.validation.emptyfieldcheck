@@ -18,16 +18,17 @@
             <Input
                 id="ageInput"
                 class="sapUiSmallMarginBottom"
+                fieldGroupIds="personalInfo"
                 placeholder="Enter age"
                 showClearIcon="true"
-                valueLiveUpdate="true"
                 value="{
 				path: '/age',
 				type: 'sap.ui.model.type.Integer',
 				constraints: {
 					minimum: 18
-				}
-			}"
+                    }
+                }"
+                valueStateText="Age must REALLY be greater than 18"
             />
             <Label
                 text="Name"
@@ -37,16 +38,17 @@
             <Input
                 id="nameInput"
                 class="sapUiSmallMarginBottom"
+                fieldGroupIds="personalInfo"
                 placeholder="Enter name"
                 value="{
-									path: '/name',
-									type: 'sap.ui.model.type.String',
-									constraints: {
-										minLength: 2,
-										maxLength: 10
-									}
-								}"
-                liveChange="onNameLiveChange"
+					path: '/name',
+					type: 'sap.ui.model.type.String',
+					constraints: {
+						minLength: 2,
+						maxLength: 10
+					}
+				}"
+                valueStateText="Name must be between 2 and 10 characters - YOUR NAME IS TOO LONG"
             />
             <Label
                 text="E-mail"
@@ -57,12 +59,14 @@
                 id="emailInput"
                 class="sapUiSmallMarginBottom"
                 type="Email"
+                fieldGroupIds="personalInfo"
                 autocomplete="true"
                 placeholder="Enter email"
                 value="{
-				path: '/email',
-				type: '.types.email'
-			}"
+				    path: '/email',
+				    type: '.types.email'
+		        }"
+                valueStateText="Please enter a VALID email address"
             />
             <Label
                 text="Password"
@@ -75,9 +79,9 @@
                 placeholder="Enter password"
                 showClearIcon="true"
                 value="{
-							path: '/pwd',
-							type: '.types.password'
-						}"
+				    path: '/pwd',
+					type: '.types.password'
+				}"
             />
 
             <Label
@@ -99,6 +103,11 @@
                     text="Submit"
                     press="onSubmit"
                     type="Emphasized"
+                />
+                <Button
+                    text="Submit Field Group"
+                    press="onSubmitFieldGroup"
+                    type="Neutral"
                 />
                 <Button
                     text="Reset"
